@@ -587,6 +587,7 @@ func (self *CommitLoader) getLogCmd(opts GetCommitsOptions) oscommands.ICmdObj {
 	}
 
 	cmdArgs := NewGitCmd("log").
+		Arg("--decorate-refs=refs/tags/*").
 		Arg(refSpec).
 		ArgIf(gitLogOrder != "default", "--"+gitLogOrder).
 		ArgIf(opts.All, "--all").
